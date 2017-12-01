@@ -1,4 +1,23 @@
-<?php get_header(); ?>
+<?php 
+get_header(); 
+
+	while( have_posts() ) : the_post(); ?>
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+
+		    <div class="container clearfix">
+		        <h1><?php the_title(); ?></h1>
+		        <?php if( function_exists( 'the_subtitle' ) ) : ?>
+		        	<span><?php the_subtitle(); ?></span>
+		        <?php endif; ?>
+		    </div>
+
+		</section><!-- #page-title end -->
+
+	<?php endwhile; 
+	rewind_posts();
+?>
 
 	<!-- Content
     ============================================= -->
@@ -12,23 +31,14 @@
                 ============================================= -->
 				<div class="postcontent nobottommargin clearfix">
 					<?php 
-					if( have_posts() ) :
-						while( have_posts() ) : the_post(); 
-							$author_ID = get_the_author_meta('ID');
-							$author_url = get_author_posts_url( $author_ID );
-
-					?>
+						while( have_posts() ) : the_post(); ?>
 							<div class="single-post nobottommargin">
 
 		                        <!-- Single Post
 		                        ============================================= -->
 		                        <div class="entry clearfix">
 
-		                            <!-- Entry Title
-		                            ============================================= -->
-		                            <div class="entry-title">
-		                                <h2><?php the_title(); ?></h2>
-		                            </div><!-- .entry-title end -->
+		                            
 
 		                            <!-- Entry Image
 		                            ============================================= -->
@@ -69,8 +79,7 @@
 
 		                        ?>
 		                    </div>
-		                <?php endwhile;
-		            endif; ?>
+		                <?php endwhile; ?>
 
 				</div><!-- .postcontent end -->
 				<?php get_sidebar(); ?>
