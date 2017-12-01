@@ -43,11 +43,29 @@
                 ============================================= -->
 				<div id="top-social">
 					<ul>
-						<li><a href="#" class="si-facebook"><span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span></a></li>
-						<li><a href="#" class="si-twitter"><span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span></a></li>
-						<li><a href="#" class="si-instagram"><span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span></a></li>
-						<li><a href="tel:+91.11.85412542" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">+91.11.85412542</span></a></li>
-						<li><a href="mailto:info@email.com" class="si-email3"><span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text">info@email.com</span></a></li>
+						<?php
+
+						if(get_theme_mod('lu_facebook_handle')) : ?>
+							<li><a href="https://facebook.com/<?php echo get_theme_mod('lu_facebook_handle'); ?>" target="_blank" class="si-facebook"><span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span></a></li>
+						<?php endif;
+
+						if(get_theme_mod('lu_twitter_handle')) : ?>
+							<li><a href="https://twitter.com/<?php echo get_theme_mod('lu_twitter_handle'); ?>" target="_blank" class="si-twitter"><span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span></a></li>
+						<?php endif;
+
+						if(get_theme_mod('lu_instagram_handle')) : ?>
+							<li><a href="https://instagram.com/<?php echo get_theme_mod('lu_instagram_handle'); ?>" target="_blank" class="si-instagram"><span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span></a></li>
+						<?php endif;
+
+						if(get_theme_mod('lu_email')) : ?>
+							<li><a href="mailto:<?php echo get_theme_mod('lu_email'); ?>" target="_blank" class="si-email3"><span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text"><?php echo get_theme_mod('lu_email'); ?></span></a></li>
+						<?php endif;
+
+						if(get_theme_mod('lu_phone_number')) : ?>
+							<li><a href="tel:<?php echo get_theme_mod('lu_phone_number'); ?>" target="_blank" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text"><?php echo get_theme_mod('lu_phone_number'); ?></span></a></li>
+						<?php endif;
+
+						?>
 					</ul>
 				</div><!-- #top-social end -->
 

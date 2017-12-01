@@ -15,21 +15,22 @@
 
 				<div class="col_half col_last tright">
 					<div class="fright clearfix">
-						<a href="#" class="social-icon si-small si-borderless si-facebook">
-							<i class="icon-facebook"></i>
-							<i class="icon-facebook"></i>
-						</a>
-
-						<a href="#" class="social-icon si-small si-borderless si-twitter">
-							<i class="icon-twitter"></i>
-							<i class="icon-twitter"></i>
-						</a>
-
+						<?php if(get_theme_mod('lu_facebook_handle')) : ?>
+							<a href="https://facebook.com/<?php echo get_theme_mod('lu_facebook_handle'); ?>" target="_blank" class="social-icon si-small si-borderless si-facebook">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+						<?php endif; ?>
+						<?php if(get_theme_mod('lu_twitter_handle')) : ?>
+							<a href="https://twitter.com/<?php echo get_theme_mod('lu_twitter_handle'); ?>" target="_blank" class="social-icon si-small si-borderless si-twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+						<?php endif; ?>
 					</div>
 
 					<div class="clear"></div>
-
-					<i class="icon-envelope2"></i> info@email.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91-11-6541-6369
+					<?php if(get_theme_mod('lu_email')) : ?><i class="icon-envelope2"></i> <?php echo get_theme_mod('lu_email'); ?> <span class="middot">&middot;</span><?php endif;  if(get_theme_mod('lu_phone_number')) : ?><i class="icon-headphones"></i> <?php echo get_theme_mod('lu_phone_number'); endif; ?>
 				</div>
 
 			</div>
