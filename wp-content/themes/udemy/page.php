@@ -1,14 +1,14 @@
 <?php 
 get_header(); 
 
-	while( have_posts() ) : the_post(); ?>
+	while(have_posts()) : the_post(); ?>
 		<!-- Page Title
 		============================================= -->
 		<section id="page-title">
 
 		    <div class="container clearfix">
 		        <h1><?php the_title(); ?></h1>
-		        <?php if( function_exists( 'the_subtitle' ) ) : ?>
+		        <?php if(function_exists('the_subtitle')) : ?>
 		        	<span><?php the_subtitle(); ?></span>
 		        <?php endif; ?>
 		    </div>
@@ -31,7 +31,7 @@ get_header();
                 ============================================= -->
 				<div class="postcontent nobottommargin clearfix">
 					<?php 
-						while( have_posts() ) : the_post(); ?>
+						while(have_posts()) : the_post(); ?>
 							<div class="single-post nobottommargin">
 
 		                        <!-- Single Post
@@ -43,10 +43,10 @@ get_header();
 		                            <!-- Entry Image
 		                            ============================================= -->
 		                            <?php 
-										if( has_post_thumbnail() ) : ?>
+										if(has_post_thumbnail()) : ?>
 		                            		<div class="entry-image">
 			                                	<a href="<?php the_permalink(); ?>">
-			                                		<?php the_post_thumbnail( 'full' ); ?>
+			                                		<?php the_post_thumbnail('full'); ?>
 			                                	</a>		                                
 		                            		</div>
 		                            <?php endif; ?> <!-- .entry-image end -->
@@ -58,10 +58,10 @@ get_header();
 		                                <?php 
 
 		                                the_content(); 
-		                                wp_link_pages( array(
-											'before'           => '<p class="text-center">' . __( 'Pages:', 'udemy' ),
-											'after'            => '</p>',
-										) );
+		                                wp_link_pages(array(
+											'before' => '<p class="text-center">' . __( 'Pages:', 'udemy' ),
+											'after' => '</p>',
+										));
 
 		                                ?>
 		                                <!-- Post Single - Content End -->
@@ -73,7 +73,7 @@ get_header();
 
 		                        <?php 
 
-		                        if( comments_open() || get_comments_number() ) :
+		                        if(comments_open() || get_comments_number()) :
 		                        	comments_template(); 
 		                        endif;
 

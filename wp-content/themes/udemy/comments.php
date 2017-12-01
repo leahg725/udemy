@@ -1,6 +1,6 @@
 <?php 
 
-if( post_password_required() ) :
+if(post_password_required()) :
 	return;
 endif;
 
@@ -10,7 +10,7 @@ endif;
 ============================================= -->
 <div id="comments" class="clearfix">
 	<?php
-	if( have_comments() ) : ?>
+	if(have_comments()) : ?>
 
 		<h3 id="comments-title"><span><?php comments_number(); ?></span></h3>
 
@@ -24,7 +24,7 @@ endif;
 		                <div class="comment-meta">
 		                    <div class="comment-author vcard">
 								<span class="comment-avatar clearfix">
-									<?php echo get_avatar( $comment, 60 ); ?>
+									<?php echo get_avatar($comment, 60); ?>
 								</span>
 		                    </div>
 		                </div>

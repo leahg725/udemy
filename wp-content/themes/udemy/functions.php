@@ -10,6 +10,7 @@ include(get_template_directory() . '/includes/widgets.php');
 // Hooks
 add_action('wp_enqueue_scripts', 'lu_enqueue');
 add_action('after_setup_theme', 'lu_setup_theme');
-add_action( 'widgets_init', 'lu_widgets' );
+add_action('widgets_init', 'lu_widgets');
+add_action('customize_register', 'lu_customize_register');
 
 // Shortcodes
