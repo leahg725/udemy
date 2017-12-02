@@ -2,10 +2,12 @@
 
 function lu_misc_customizer_section($wp_customize) {
 	$wp_customize->add_setting('lu_header_show_search', array(
-		'default' => 'yes'
+		'default' => 'yes',
+		'transport' => 'postMessage'
 	));
 	$wp_customize->add_setting('lu_header_show_cart', array(
-		'default' => 'yes'
+		'default' => 'yes',
+		'transport' => 'postMessage'
 	));
 	$wp_customize->add_setting('lu_footer_copyright_text', array(
 		'default' => 'Copyright &copy; 2017 All Rights Reserved by Leah Gazes'
@@ -19,7 +21,8 @@ function lu_misc_customizer_section($wp_customize) {
 
 	$wp_customize->add_section('lu_misc_section', array(
 		'title' => __('Udemy Misc Settings', 'udemy'),
-		'priority' => 30
+		'priority' => 30,
+		'panel' => 'udemy'
 	));
 
 	$wp_customize->add_control( 

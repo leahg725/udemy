@@ -9,11 +9,13 @@ include(get_template_directory() . '/includes/widgets.php');
 include(get_template_directory() . '/includes/theme-customizer.php');
 include(get_template_directory() . '/includes/customizer/social.php');
 include(get_template_directory() . '/includes/customizer/misc.php');
+include(get_template_directory() . '/includes/customizer/enqueue.php');
 
 // Hooks
 add_action('wp_enqueue_scripts', 'lu_enqueue');
 add_action('after_setup_theme', 'lu_setup_theme');
 add_action('widgets_init', 'lu_widgets');
 add_action('customize_register', 'lu_customize_register');
+add_action('customize_preview_init', 'lu_customize_preview_init');
 
 // Shortcodes
