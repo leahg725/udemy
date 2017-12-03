@@ -1,12 +1,63 @@
 <div class="entry clearfix">
-	<div class="entry-image">
-		<?php 
-		if( has_post_thumbnail() ) : ?>
-			<a href="<?php the_permalink(); ?>" data-lightbox="image">
-				<?php the_post_thumbnail( 'full', array('class' => 'image_fade') ); ?>
-			</a>
-		<?php endif; ?>
-	</div>
+
+    <?php
+
+    if(get_post_format() == 'gallery') :
+        $gallery  = get_post_gallery(get_the_ID(), false);
+        ?>
+        <div class="entry-image">
+            <div class="fslider"  data-arrows="false" data-lightbox="gallery">
+                <div class="flexslider">
+                    <div class="slider-wrap">
+                        <?php foreach($gallery['src'] as $src) : ?>
+                            <div class="slide">
+                                <a href="<?php echo $src; ?>">
+                                    <img class="image_fade" src="<?php echo $src; ?>">
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php elseif(get_post_format() == 'video') :
+        $content = apply_filters('the_content', get_the_content());
+        $video = false;
+        if(!strpos($content, 'wp-playlist-script')) :
+            $video = get_media_embedded_in_content(
+                $content,
+                array('video', 'object', 'embed', 'iframe')
+            );
+        endif;
+
+        if($video) : ?>
+            <div class="entry-video">
+                <?php echo $video[0]; ?>
+            </div>
+        <?php endif;
+
+    elseif(get_post_format() == 'audio') :
+        $content = apply_filters('the_content', get_the_content());
+        $audio = false;
+        if(!strpos($content, 'wp-playlist-script')) :
+            $audio = get_media_embedded_in_content(
+                $content,
+                array('audio', 'iframe')
+            );
+        endif;
+
+        if($audio) :
+            echo $audio[0];
+        endif;
+
+    elseif(has_post_thumbnail()) : ?>
+        <div class="entry-image">
+            <a href="<?php the_permalink(); ?>" data-lightbox="image">
+                <?php the_post_thumbnail( 'full', array('class' => 'image_fade') ); ?>
+            </a>
+        </div>
+    <?php endif; ?>
+
 	<div class="entry-title">
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	</div>

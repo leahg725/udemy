@@ -18,6 +18,12 @@ function lu_misc_customizer_section($wp_customize) {
 	$wp_customize->add_setting('lu_footer_privacy_page', array(
 		'default' => 0
 	));
+	$wp_customize->add_setting('lu_show_header_popular_posts_widget', array(
+	    'default' => false
+    ));
+    $wp_customize->add_setting('lu_popular_posts_widget_title', array(
+        'default' => 'Breaking News'
+    ));
 
 	$wp_customize->add_section('lu_misc_section', array(
 		'title' => __('Udemy Misc Settings', 'udemy'),
@@ -90,4 +96,30 @@ function lu_misc_customizer_section($wp_customize) {
 			)
 		)
 	);
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'lu_show_header_popular_posts_widget_input',
+            array(
+                'label'    => __( 'Show Popular Posts', 'udemy' ),
+                'section'  => 'lu_misc_section',
+                'settings' => 'lu_show_header_popular_posts_widget',
+                'type'	   => 'checkbox',
+                'choices'  => array(
+                    'yes'  => __('Yes', 'udemy')
+                )
+            )
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'lu_popular_posts_widget_title_input',
+            array(
+                'label'    => __( 'Popular Posts Title', 'udemy' ),
+                'section'  => 'lu_misc_section',
+                'settings' => 'lu_popular_posts_widget_title',
+            )
+        )
+    );
 }
